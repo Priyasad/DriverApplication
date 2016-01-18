@@ -26,6 +26,8 @@ public class DriverAccept extends AppCompatActivity {
     private Button acceptButton;
     private Button backButton;
 
+    private String sms_id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,8 @@ public class DriverAccept extends AppCompatActivity {
 
         acceptButton = (Button) findViewById(R.id.acceptButton);
         backButton = (Button) findViewById(R.id.backButton);
+
+
 
         setDetail(new SMSReader().readSMS());
 
@@ -77,7 +81,9 @@ public class DriverAccept extends AppCompatActivity {
         dayCont.setText("Day Count : " + values[5]);
         amount.setText("Maximum Payable Price : " + values[6]);
         vehicleType.setText("Vehicle Type : " + values[7]);
-        vehicleType.setText("Passenger Count : " + values[8]);
+        passengerCount.setText("Passenger Count : " + values[8]);
+
+        sms_id = values[9];
     }
 
 }
