@@ -37,14 +37,12 @@ public class SMSDBAccess {
             String fromDate = data.getString(4);
             String time = data.getString(5);
             String dayCount = data.getString(6);
-            String vehicleType = data.getString(7);
-            String passengerCount = data.getString(8);
+            String charge = data.getString(7);
+            String vehicleType = data.getString(8);
+            String passengerCount = data.getString(9);
 
-            String[] gotData = {customer_name,fromLocation,toLocatio,fromDate,time,dayCount,vehicleType,passengerCount};
+            String[] gotData = {customer_name,fromLocation,toLocatio,fromDate,time,dayCount,charge,vehicleType,passengerCount};
             return gotData;
-
-
-
         }else{
             return null;
         }
@@ -54,7 +52,7 @@ public class SMSDBAccess {
     public boolean insertSMS(SMS data){
 
         String sql = "insert into Messages values(?,?,?,?,?,?,?,?,?,?)";
-        String values[] = {data.getCustomer_name(),data.getFrom_location(),data.getTo_location(),data.getDate().toString(),data.getTime(),String.valueOf(data.getDay_count()),data.getVehicle_type(),String.valueOf(data.getPassengers_count()),String.valueOf(data.isGot_hire())};
+        String values[] = {data.getCustomer_name(),data.getFrom_location(),data.getTo_location(),data.getDate().toString(),data.getTime(),String.valueOf(data.getDay_count()),String.valueOf(data.getCharge()),data.getVehicle_type(),String.valueOf(data.getPassengers_count()),String.valueOf(data.isGot_hire())};
         boolean added = dbHandle.setData(writableDatabase, sql, values, 1);
         return added;
 

@@ -14,6 +14,7 @@ public class SMS {
     private Date date;
     private String time;
     private int day_count;
+    private double charge;
     private String vehicle_type;
     private int passengers_count;
     private boolean got_hire;
@@ -23,7 +24,7 @@ public class SMS {
 
     }
 
-    public SMS(String sms_id, String customer_name, String from_location, String to_location, Date date, String time, int day_count, String vehicle_type, int passengers_count,boolean got_hire) {
+    public SMS(String sms_id, String customer_name, String from_location, String to_location, Date date, String time, int day_count, String vehicle_type,double charge, int passengers_count,boolean got_hire) {
         this.sms_id = sms_id;
         this.customer_name = customer_name;
         this.from_location = from_location;
@@ -34,6 +35,15 @@ public class SMS {
         this.vehicle_type = vehicle_type;
         this.passengers_count = passengers_count;
         this.got_hire = got_hire;
+        this.charge = charge;
+    }
+
+    public double getCharge() {
+        return charge;
+    }
+
+    public void setCharge(double charge) {
+        this.charge = charge;
     }
 
     public boolean isGot_hire() {
