@@ -27,6 +27,7 @@ public class DriverAccept extends AppCompatActivity {
     private Button backButton;
 
     private String sms_id;
+    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
