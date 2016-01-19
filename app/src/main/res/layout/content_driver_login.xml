@@ -15,7 +15,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/userNameText"
         android:layout_marginTop="179dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
@@ -27,7 +27,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
+        android:id="@+id/passwordText"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:text="LOGIN"
         android:id="@+id/button"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/passwordText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="45dp" />
 
@@ -54,5 +54,5 @@
         android:layout_alignLeft="@+id/button"
         android:layout_alignStart="@+id/button"
         android:layout_alignParentTop="true"
-        android:layout_alignBottom="@+id/editText" />
+        android:layout_alignBottom="@+id/userNameText" />
 </RelativeLayout>

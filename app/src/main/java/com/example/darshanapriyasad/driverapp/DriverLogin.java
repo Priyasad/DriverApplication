@@ -1,5 +1,6 @@
 package com.example.darshanapriyasad.driverapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.darshanapriyasad.driverapp.controller.DriverController;
@@ -18,7 +20,9 @@ public class DriverLogin extends AppCompatActivity {
 
 
     private Button loginButton;
-    DriverController driverController;
+    private DriverController driverController;
+    private TextView userName;
+    private TextView passwordText;
 
 
     @Override
@@ -30,6 +34,8 @@ public class DriverLogin extends AppCompatActivity {
         driverController = new DriverController();
 
         loginButton = (Button) findViewById(R.id.button);
+        userName = (TextView) findViewById(R.id.userNameText);
+        passwordText = (TextView) findViewById(R.id.passwordText);
 
         if(driverController.isRegisterd()){
 
@@ -38,6 +44,26 @@ public class DriverLogin extends AppCompatActivity {
 
             addDriver();
         }
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                String user_name = userName.getText().toString();
+                String passwords = passwordText.getText().toString();
+                String validDriver = driverController.isValidDriver(user_name, passwords);
+                if(validDriver == null){
+                    Toast.makeText(getApplicationContext(), "Please Check Again", Toast.LENGTH_LONG).show();
+
+                }else{
+                    Intent intent = new Intent(DriverLogin.this, DriverAccept.class);
+                    intent.putExtra("D_NIC",validDriver);
+                    startActivity(intent);
+                }
+
+
+            }
+        });
+
 
 
     }
