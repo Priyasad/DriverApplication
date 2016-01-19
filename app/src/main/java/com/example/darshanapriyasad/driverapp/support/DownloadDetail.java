@@ -5,6 +5,8 @@ package com.example.darshanapriyasad.driverapp.support;
  */
 public class DownloadDetail {
 
+    // use this to downolad data from server and register the drivers
+
     public String[] getDriverDetails(){
 
         return null;
