@@ -8,8 +8,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.example.darshanapriyasad.driverapp.controller.DriverController;
+import com.example.darshanapriyasad.driverapp.support.DownloadDetail;
 
 public class DriverLogin extends AppCompatActivity {
+
+
+    private Button loginButton;
+    DriverController driverController;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +27,40 @@ public class DriverLogin extends AppCompatActivity {
         setContentView(R.layout.activity_driver_login);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        driverController = new DriverController();
 
+        loginButton = (Button) findViewById(R.id.button);
+
+        if(driverController.isRegisterd()){
+
+        }else{
+            Toast.makeText(getApplicationContext(), "No Driver Yet", Toast.LENGTH_LONG).show();
+
+            addDriver();
+        }
+
+
+    }
+
+    private void addDriver() {
+        // add driver code here
+
+        DownloadDetail downloadDetail = new DownloadDetail();
+        String[] driverDetails = downloadDetail.getDriverDetails();
+
+        String driver_id = null;
+        String user_name = null;
+        String password = null;
+
+        if(driverDetails != null){
+            driver_id = driverDetails[0];
+            user_name = driverDetails[1];
+            password = driverDetails[2];
+        }
+
+        if(password != null){
+            driverController.addDriver(driver_id,user_name,password);
+        }
 
     }
 

@@ -46,4 +46,27 @@ public class DriverDBAccess {
         }
 
     }
+
+    public boolean isRegistered(){
+        String sql = "SELECT * FROM Driver_Detail;";
+
+
+
+        Cursor data=dbHandle.getData(readableDatabase,sql);
+
+        if(data.moveToFirst()){
+            return true;
+
+        }else{
+            return false;
+        }
+    }
+
+    public boolean addDriver(String driver_id, String user_name, String password) {
+        String sql = "insert into Driver_Detail values(?,?,?)";
+        String values[] = {driver_id,user_name,password};
+        boolean added = dbHandle.setData(writableDatabase, sql, values, 1);
+        return added;
+
+    }
 }

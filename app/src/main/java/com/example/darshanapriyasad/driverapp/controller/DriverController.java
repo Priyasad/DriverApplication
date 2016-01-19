@@ -16,4 +16,12 @@ public class DriverController {
     public String isValidDriver(String user_name,String password){
         return driverDBAccess.isValidDriver(user_name,password);
     }
+
+    public boolean isRegisterd(){
+        return driverDBAccess.isRegistered();
+    }
+
+    public boolean addDriver(String driver_id,String user_name,String password){
+        return driverDBAccess.addDriver(driver_id,user_name,password);
+    }
 }
